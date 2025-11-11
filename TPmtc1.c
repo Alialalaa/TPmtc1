@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <math.h>
-
+#include <gmp.h>
 
 
 
@@ -40,52 +40,52 @@ void ex2(int a3, int b3) {
 
 }
 
-//void gmpEx1(mpz_t  Gc, mpz_t  Gd) {
-//	mpz_t Gq1 = 0;
-//	mpz_t Gtemp = Gc;
-//	while (Gtemp >= Gd) {
-//		mpz_sub(Gtemp, Gtemp, Gd);
-//		mpz_add(Gq1, Gq1, 1);
-//	}
-//	gmp_printf("%Zd = %Zd * %Zd + %Zd");
-//
-//}
+void gmpEx1(mpz_t  Gc, mpz_t  Gd) {
+	mpz_t Gq1 = 0;
+	mpz_t Gtemp = Gc;
+	while (Gtemp >= Gd) {
+		mpz_sub(Gtemp, Gtemp, Gd);
+		mpz_add(Gq1, Gq1, 1);
+	}
+	gmp_printf("%Zd = %Zd * %Zd + %Zd");
+
+}
 
 
 
 
-//void gmpEx2(mpz_t Ga3, mpz_t Gb3) {
-//	mpz_t Gr3, Gq3, Gn3, Gaux;
-//	mpz_inits(Gr3, Gq3, Gn3, Gaux, NULL);
-//
-//	mpz_set(Gr3, Ga3);
-//	mpz_set(Gaux, Gb3);
-//	mpz_set_ui(Gq3, 0);
-//	mpz_set_ui(Gn3, 0);
-//
-//	while (mpz_cmp(Gaux, Ga3) < 0) {
-//		mpz_mul_ui(Gaux, Gaux, 2);
-//		mpz_add_ui(Gn3, Gn3, 1);
-//	}
-//
-//	while (mpz_cmp_ui(Gn3, 0) > 0) {
-//		mpz_tdiv_q_2exp(Gaux, Gaux, 1); 
-//		mpz_sub_ui(Gn3, Gn3, 1);
-//
-//		if (mpz_cmp(Gr3, Gaux) < 0) {
-//			mpz_mul_ui(Gq3, Gq3, 2);
-//		}
-//		else {
-//			mpz_mul_ui(Gq3, Gq3, 2);
-//			mpz_add_ui(Gq3, Gq3, 1);
-//			mpz_sub(Gr3, Gr3, Gaux);
-//		}
-//	}
-//
-//	gmp_printf("%Zd = %Zd * %Zd + %Zd\n", Ga3, Gb3, Gq3, Gr3);
-//
-//	mpz_clears(Gr3, Gq3, Gn3, Gaux, NULL);
-//}
+void gmpEx2(mpz_t Ga3, mpz_t Gb3) {
+	mpz_t Gr3, Gq3, Gn3, Gaux;
+	mpz_inits(Gr3, Gq3, Gn3, Gaux, NULL);
+
+	mpz_set(Gr3, Ga3);
+	mpz_set(Gaux, Gb3);
+	mpz_set_ui(Gq3, 0);
+	mpz_set_ui(Gn3, 0);
+
+	while (mpz_cmp(Gaux, Ga3) < 0) {
+		mpz_mul_ui(Gaux, Gaux, 2);
+		mpz_add_ui(Gn3, Gn3, 1);
+	}
+
+	while (mpz_cmp_ui(Gn3, 0) > 0) {
+		mpz_tdiv_q_2exp(Gaux, Gaux, 1); 
+		mpz_sub_ui(Gn3, Gn3, 1);
+
+		if (mpz_cmp(Gr3, Gaux) < 0) {
+			mpz_mul_ui(Gq3, Gq3, 2);
+		}
+		else {
+			mpz_mul_ui(Gq3, Gq3, 2);
+			mpz_add_ui(Gq3, Gq3, 1);
+			mpz_sub(Gr3, Gr3, Gaux);
+		}
+	}
+
+	gmp_printf("%Zd = %Zd * %Zd + %Zd\n", Ga3, Gb3, Gq3, Gr3);
+
+	mpz_clears(Gr3, Gq3, Gn3, Gaux, NULL);
+}
 
 
 void pgcd1(int a1, int b1) {
