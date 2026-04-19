@@ -145,4 +145,5 @@ void pgcd38(int a, int b) {
 
 int main() {
 	pgcd38(490, 84);
+	printf("I add a new issue in github")
 }
